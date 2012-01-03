@@ -23,6 +23,9 @@
     <Content Include="Get-JiraSession.ps1">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Get-JiraProject.ps1">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="JiraSession.cs">
       <SubType>Content</SubType>
     </Content>
@@ -40,7 +43,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Script.ps1" />
+    <Compile Include="SharedScripts.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

@@ -2,8 +2,17 @@ function Get-JiraSession
 {
 	[CmdletBinding()]
 	param (
+		[Parameter(Mandatory=$false)]
+		[switch]$Current
 	)
 process {
-	$JiraSessionManager.Sessions
+	if ($Current.IsPresent)
+		{
+			$JiraSessionManager.CurrentSession
+		}
+		else
+		{
+			$JiraSessionManager.Sessions
+		}
 }	
 }

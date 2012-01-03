@@ -3,7 +3,10 @@ Add-Type -Path "$psScriptRoot\JiraSession.cs", "$psScriptRoot\JiraSessionManager
 
 $Script:JiraSessionManager = New-Object ThomyKay.Jira.JiraSessionManager
 
+. $psScriptRoot\SharedScripts.ps1
+
 # Common cmdlets
 . $psScriptRoot\Enter-JiraSession.ps1
 . $psScriptRoot\Get-JiraSession.ps1
+. $psScriptRoot\Get-JiraProject.ps1
 

@@ -17,7 +17,9 @@ process {
 
 	$session = New-Object ThomyKay.Jira.JiraSession -property @{
 		Token = $token;
-		Proxy = $proxy
+		Proxy = $proxy;
+		Credential = $Credential;
+		ConnectionUri = $ConnectionUri
 	}
 	
 	$JiraSessionManager.Enter($session)
