@@ -1,7 +1,10 @@
-function Get-JiraProject
+function Invoke-JiraItem
 {
 	[CmdletBinding()]
 	param (
+		[Parameter(Mandatory = $true, Position = 0, ValueFromPipeline = $true)]
+		$Item,
+		
 		[Parameter(Mandatory = $false, ValueFromPipeline = $true)]
 		[ThomyKay.Jira.JiraSession]$Session = (Get-JiraSession -Current)
 	)
@@ -10,8 +13,7 @@ begin
 }
 process
 {
-	[Uri]$uri = (GetRestEndpoint $Session).OriginalString + "/project/"
-	Invoke-RestMethod -Uri $uri -Headers (GetHeaders $Session )
+	Start-Process $Item.self
 }
 end
 {

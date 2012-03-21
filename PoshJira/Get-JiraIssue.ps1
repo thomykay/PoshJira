@@ -1,4 +1,4 @@
-function Get-JiraProject
+function Get-JiraIssue
 {
 	[CmdletBinding()]
 	param (
@@ -10,7 +10,7 @@ begin
 }
 process
 {
-	[Uri]$uri = (GetRestEndpoint $Session).OriginalString + "/project/"
+	[Uri]$uri = (GetRestEndpoint $Session).OriginalString + "/issue/"
 	Invoke-RestMethod -Uri $uri -Headers (GetHeaders $Session )
 }
 end
