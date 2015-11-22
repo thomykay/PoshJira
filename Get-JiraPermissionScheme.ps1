@@ -1,7 +1,6 @@
-﻿function Get-JiraPriority
+﻿function Get-JiraPermissionScheme
 {
 	[CmdletBinding()]
-    [OutputType("ThomyKay.Jira.Priority")]
 	param (
         [Parameter(Mandatory = $false, ValueFromPipeline = $true, Position = 0)]
         [string]$Name = "*",
@@ -14,16 +13,10 @@ begin
 }
 process
 {
-	[Uri]$uri = (GetRestEndpoint $Session).OriginalString + "/priority/"
-    #why does it only work with the intermediate result?
+	[Uri]$uri = (GetRestEndpoint $Session).OriginalString + "/permissionscheme"
+    #currently gives a 500
     $result = Invoke-RestMethod -Uri $uri -Headers (GetHeaders $Session)
-	$result `
-        | Where-Object {$_.name -like $Name} `
-        | % {
-                $_.PSObject.TypeNames.Add("ThomyKay.Jira.Priority")
-                $_
-            }
-
+	$result | Where-Object {$_.name -like $Name}
 }
 end
 {

@@ -13,7 +13,7 @@ begin
 }
 process
 {
-	Start-Process $Item.self
+	Start-Process $Item.view
 }
 end
 {
