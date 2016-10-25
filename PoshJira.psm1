@@ -41,6 +41,11 @@ $Script:JiraSessionManager = New-Object ThomyKay.Jira.JiraSessionManager
 . $psScriptRoot\Get-JiraProject.ps1
 . $psScriptRoot\New-JiraProject.ps1
 
+. $psScriptRoot\Get-JiraProjectRole.ps1
+. $psScriptRoot\New-JiraProjectRole.ps1
+
+. $psScriptRoot\Get-JiraProjectRoleActor.ps1
+
 . $psScriptRoot\Get-JiraIssue.ps1
 . $psScriptRoot\New-JiraIssue.ps1
 
